@@ -1,29 +1,52 @@
 package view;
 
+import model.Drawing;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class MainFrame extends JFrame{
-    private ToolbarView toolbarView = new ToolbarView();
-    private DrawingContainerView drawingContainer = new DrawingContainerView();
-    private FooterView footerView = new FooterView();
+public class MainFrame{
 
-    public MainFrame() throws HeadlessException {
+    private final JFrame frame = new JFrame();
 
-        setSize(new Dimension(800,600));
+    private final ToolbarView toolbarView;
+    private final FooterView footerView;
+    private final DrawingView drawingContainer;
 
+    public MainFrame(Drawing drawing) {
+        toolbarView = new ToolbarView(drawing);
+        drawingContainer = new DrawingView(drawing);
+        footerView = new FooterView(drawing);
+
+        frame.setSize(new Dimension(800,600));
 
         JPanel nullLayoutArea = new JPanel();
         nullLayoutArea.setLayout(new FlowLayout());
-        nullLayoutArea.add(drawingContainer);
+        nullLayoutArea.add(drawingContainer.getPanel());
 
         JScrollPane drawingContainerScrollPane = new JScrollPane(nullLayoutArea);
 
-        add(drawingContainerScrollPane,BorderLayout.CENTER);
-        add(footerView,BorderLayout.SOUTH);
-        add(toolbarView,BorderLayout.WEST);
+        frame.add(drawingContainerScrollPane, BorderLayout.CENTER);
+        frame.add(footerView.getPanel(), BorderLayout.SOUTH);
+        frame.add(toolbarView.getToolBar(), BorderLayout.WEST);
 
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public ToolbarView getToolbarView() {
+        return toolbarView;
+    }
+
+    public DrawingView getDrawingContainer() {
+        return drawingContainer;
+    }
+
+    public FooterView getFooterView() {
+        return footerView;
     }
 }
