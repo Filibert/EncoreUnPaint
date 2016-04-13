@@ -1,10 +1,11 @@
-package Controller.ToolbarController;
+package controller.toolbar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 
-public class FormColoringAction implements Action {
+
+public class DrawOvalAction implements Action {
     @Override
     public Object getValue(String key) {
         return null;

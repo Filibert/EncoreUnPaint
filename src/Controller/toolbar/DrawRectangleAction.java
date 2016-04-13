@@ -1,10 +1,11 @@
-package Controller.ToolbarController;
+package controller.toolbar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 
-public class SelectAction implements Action {
+
+public class DrawRectangleAction implements Action {
     @Override
     public Object getValue(String key) {
         return null;

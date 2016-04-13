@@ -1,6 +1,6 @@
 package test;
 
-import View.MainFrame;
+import view.MainFrame;
 
 public class MainFrameTest {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Controller.ToolbarController.FormColoringAction;
-import Controller.ToolbarController.SelectAction;
+import controller.toolbar.FormColoringAction;
+import controller.toolbar.SelectAction;
 
 import javax.swing.*;
 import java.awt.*;
