@@ -10,9 +10,6 @@ public class Drawing {
     private List<DrawingListener> drawingListenerList = new ArrayList<>();
     private List<DrawingComponent> drawingComponentList = new ArrayList<>();
 
-
-
-
     private DrawingComponent selection = null;
 
     public List<DrawingComponent> getDrawingComponentList() {

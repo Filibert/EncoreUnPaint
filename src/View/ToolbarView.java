@@ -22,7 +22,6 @@ public class ToolbarView{
     public ToolbarView(Drawing drawing) {
         this.drawing = drawing;
 
-
         toolBar = new JToolBar(null, JToolBar.VERTICAL);
 
         JButton selectButton = toolBar.add(new SelectAction());

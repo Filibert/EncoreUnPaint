@@ -1,6 +1,5 @@
 package controller;
 
-import view.FooterView;
 import view.MainFrame;
 
 public class MainController {
