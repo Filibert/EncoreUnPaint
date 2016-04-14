@@ -1,21 +1,22 @@
 package view;
 
 import model.Drawing;
-import model.DrawingListener;
+import view.components.DrawingComponentView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DrawingView implements DrawingListener {
+public class DrawingView {
 
     private final JPanel panel = new JPanel();
 
     private final Drawing drawing;
+    private final List<DrawingComponentView> drawingComponentViewList = new ArrayList<>();
 
     public DrawingView(Drawing drawing) {
         this.drawing = drawing;
-
-        drawing.addDrawingListener(this);
 
         //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -33,13 +34,12 @@ public class DrawingView implements DrawingListener {
         return drawing;
     }
 
-    @Override
-    public void onDrawingChanged() {
-        update();
-    }
-
-    private void update() {
+    public void update() {
         panel.revalidate();
         panel.repaint();
+    }
+
+    public List<DrawingComponentView> getDrawingComponentViewList() {
+        return drawingComponentViewList;
     }
 }

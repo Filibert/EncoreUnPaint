@@ -3,7 +3,9 @@ package view.components;
 
 import model.components.DrawingComponent;
 
-public abstract class DrawingComponentView {
+import javax.swing.*;
+
+public abstract class DrawingComponentView extends JPanel {
 
     private final DrawingComponent drawingComponent;
 
@@ -14,4 +16,6 @@ public abstract class DrawingComponentView {
     public DrawingComponent getDrawingComponent() {
         return drawingComponent;
     }
+
+    public abstract void update();
 }

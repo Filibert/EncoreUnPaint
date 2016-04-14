@@ -11,18 +11,18 @@ public class MainFrame{
 
     private final ToolbarView toolbarView;
     private final FooterView footerView;
-    private final DrawingView drawingContainer;
+    private final DrawingView drawingView;
 
     public MainFrame(Drawing drawing) {
         toolbarView = new ToolbarView(drawing);
-        drawingContainer = new DrawingView(drawing);
+        drawingView = new DrawingView(drawing);
         footerView = new FooterView(drawing);
 
         frame.setSize(new Dimension(800,600));
 
         JPanel nullLayoutArea = new JPanel();
         nullLayoutArea.setLayout(new FlowLayout());
-        nullLayoutArea.add(drawingContainer.getPanel());
+        nullLayoutArea.add(drawingView.getPanel());
 
         JScrollPane drawingContainerScrollPane = new JScrollPane(nullLayoutArea);
 
@@ -42,8 +42,8 @@ public class MainFrame{
         return toolbarView;
     }
 
-    public DrawingView getDrawingContainer() {
-        return drawingContainer;
+    public DrawingView getDrawingView() {
+        return drawingView;
     }
 
     public FooterView getFooterView() {

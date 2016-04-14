@@ -25,4 +25,8 @@ public class FooterView implements DrawingListener{
     public void onDrawingChanged() {
 
     }
+
+    public Drawing getDrawing() {
+        return drawing;
+    }
 }
