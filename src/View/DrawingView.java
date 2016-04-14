@@ -18,6 +18,8 @@ public class DrawingView {
     public DrawingView(Drawing drawing) {
         this.drawing = drawing;
 
+        panel.setLayout(null);
+
         //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         Dimension size = new Dimension(800,800);
@@ -35,6 +37,14 @@ public class DrawingView {
     }
 
     public void update() {
+
+        panel.removeAll();
+
+        for(DrawingComponentView drawingComponentView : drawingComponentViewList)
+        {
+            panel.add(drawingComponentView);
+        }
+
         panel.revalidate();
         panel.repaint();
     }

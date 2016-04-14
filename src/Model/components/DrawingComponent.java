@@ -8,9 +8,27 @@ import java.awt.*;
 public abstract class DrawingComponent {
     private Drawing drawing;
 
-    private Point position = new Point(0, 0);
+    private Point position;
+    private Dimension dimension;
+
     private Color mainColor;
     private Color secondaryColor;
+
+    public DrawingComponent(Point position, Dimension dimension) {
+        this.position = position;
+        this.dimension = dimension;
+    }
+
+    public boolean isSelected()
+    {
+        if(drawing == null)
+            return false;
+
+        if(drawing.getSelection() == this)
+            return true;
+        else
+            return false;
+    }
 
     public Point getPosition() {
         return position;
@@ -42,5 +60,18 @@ public abstract class DrawingComponent {
 
     public void setDrawing(Drawing drawing) {
         this.drawing = drawing;
+    }
+
+    public Dimension getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(Dimension dimension) {
+        this.dimension = dimension;
+    }
+
+    @Override
+    public String toString() {
+        return "Drawing Component : position : " + position + ", dimension : " + dimension;
     }
 }

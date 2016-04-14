@@ -10,6 +10,7 @@ public abstract class DrawingComponentView extends JPanel {
     private final DrawingComponent drawingComponent;
 
     public DrawingComponentView(DrawingComponent drawingComponent) {
+        setLayout(null);
         this.drawingComponent = drawingComponent;
     }
 
@@ -17,5 +18,14 @@ public abstract class DrawingComponentView extends JPanel {
         return drawingComponent;
     }
 
-    public abstract void update();
+    public void update(){
+        updateSize();
+
+        repaint();
+        revalidate();
+    }
+
+    private void updateSize() {
+        setBounds(drawingComponent.getPosition().x, drawingComponent.getPosition().y, drawingComponent.getDimension().width, drawingComponent.getDimension().height);
+    }
 }
