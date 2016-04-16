@@ -1,16 +1,11 @@
 package controller;
 
 import controller.components.ComponentController;
-import controller.tools.ToolController;
 import model.DrawingListener;
 import model.components.DrawingComponent;
 import model.components.RectangleComponent;
 import view.DrawingView;
-import view.components.DrawingComponentView;
 import view.components.RectangleView;
-
-import javax.swing.text.ComponentView;
-import java.util.List;
 
 public class DrawingController implements DrawingListener {
     private DrawingView drawingView;

@@ -9,7 +9,7 @@ public class MainController {
         this.mainFrame = mainFrame;
 
         new DrawingController(mainFrame.getDrawingView());
-        new ToolbarController(mainFrame.getToolbarView());
+        new ToolbarController(mainFrame, mainFrame.getToolbarView());
         new FooterController(mainFrame.getFooterView());
     }
 

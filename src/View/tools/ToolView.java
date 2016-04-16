@@ -1,4 +1,9 @@
 package view.tools;
 
-public class ToolView {
+import javax.swing.*;
+
+public class ToolView extends JButton {
+    public ToolView(String text) {
+        super(text);
+    }
 }
