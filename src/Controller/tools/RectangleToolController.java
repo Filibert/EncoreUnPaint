@@ -29,8 +29,8 @@ public class RectangleToolController extends ToolController{
             end = e.getPoint();
 
             RectangleComponent rectangleComponent = new RectangleComponent(start, end);
-            rectangleComponent.setMainColor(Color.BLUE);
-            rectangleComponent.setSecondaryColor(Color.BLACK);
+            rectangleComponent.setMainColor(getFrame().getDrawingView().getDrawing().getMainColorSelected());
+            rectangleComponent.setSecondaryColor(getFrame().getDrawingView().getDrawing().getSecondaryColorSelected());
 
             getFrame().getDrawingView().getDrawing().addDrawingComponent(rectangleComponent);
 

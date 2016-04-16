@@ -11,6 +11,8 @@ import view.tools.RectangleToolView;
 import view.tools.SelectionToolView;
 import view.tools.ToolView;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
@@ -38,6 +40,27 @@ public class ToolbarController {
                 }
             });
         }
+        
+        handleColorSelect();
+    }
+
+    private void handleColorSelect() {
+
+        toolbarView.getMainColorButton().addActionListener(e -> {
+            Color mainColor = JColorChooser.showDialog(null,"Main color",null);
+            toolbarView.getMainColorButton().setBackground(mainColor);
+            mainFrame.getDrawingView().getDrawing().setMainColorSelected(mainColor);
+        });
+
+        toolbarView.getSecondaryColorButton().addActionListener(e -> {
+            Color secondaryColor = JColorChooser.showDialog(null,"Secondary Color",null);
+            toolbarView.getMainColorButton().setBackground(secondaryColor);
+            mainFrame.getDrawingView().getDrawing().setSecondaryColorSelected(secondaryColor);
+        });
+
+        toolbarView.getMainColorButton().setBackground(mainFrame.getDrawingView().getDrawing().getMainColorSelected());
+        toolbarView.getSecondaryColorButton().setBackground(mainFrame.getDrawingView().getDrawing().getSecondaryColorSelected());
+
     }
 
     private void populateToolControllerList() {

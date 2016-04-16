@@ -15,13 +15,12 @@ public class ToolbarView{
 
     private final JToolBar toolBar;
 
-    private Color mainColor;
-    private Color secondaryColor;
+    private final JButton mainColorButton;
+    private final JButton secondaryColorButton;
 
     private final Drawing drawing;
 
     private final List<ToolView> toolViewList = new ArrayList<>();
-    private final ToolView activeTool = null;
 
     public ToolbarView(Drawing drawing) {
         this.drawing = drawing;
@@ -59,16 +58,11 @@ public class ToolbarView{
         JPanel jpanel = new JPanel();
         jpanel.setLayout(new BoxLayout(jpanel, BoxLayout.X_AXIS));
 
-        JButton ColorSelectButton1 = new JButton();
-        JButton ColorSelectButton2 = new JButton();
+        mainColorButton = new JButton();
+        secondaryColorButton = new JButton();
 
-        ColorSelectButton1.addActionListener(e -> mainColor = JColorChooser.showDialog(null,"Color",null));
-
-        ColorSelectButton2.addActionListener(e -> secondaryColor = JColorChooser.showDialog(null,"Color",null));
-        ColorSelectButton1.setBackground(mainColor);
-        ColorSelectButton2.setBackground(secondaryColor);
-        jpanel.add(ColorSelectButton1);
-        jpanel.add(ColorSelectButton2);
+        jpanel.add(mainColorButton);
+        jpanel.add(secondaryColorButton);
 
         toolBar.add(jpanel);
     }
@@ -88,27 +82,19 @@ public class ToolbarView{
         toolBar.removeAll();
     }
 
-    public Color getMainColor() {
-        return mainColor;
-    }
-
-    public void setMainColor(Color mainColor) {
-        this.mainColor = mainColor;
-    }
-
-    public Color getSecondaryColor() {
-        return secondaryColor;
-    }
-
-    public void setSecondaryColor(Color secondaryColor) {
-        this.secondaryColor = secondaryColor;
-    }
-
     public Drawing getDrawing() {
         return drawing;
     }
 
     public List<ToolView> getToolViewList() {
         return toolViewList;
+    }
+
+    public JButton getMainColorButton() {
+        return mainColorButton;
+    }
+
+    public JButton getSecondaryColorButton() {
+        return secondaryColorButton;
     }
 }

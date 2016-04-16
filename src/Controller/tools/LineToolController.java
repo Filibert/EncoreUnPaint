@@ -30,9 +30,8 @@ public class LineToolController extends ToolController{
             end = e.getPoint();
 
             LineComponent lineComponent = new LineComponent(start, end);
-            lineComponent.setMainColor(Color.MAGENTA);
-
-            System.out.println("print line : " + start + end);
+            lineComponent.setMainColor(getFrame().getDrawingView().getDrawing().getMainColorSelected());
+            lineComponent.setSecondaryColor(getFrame().getDrawingView().getDrawing().getSecondaryColorSelected());
 
             getFrame().getDrawingView().getDrawing().addDrawingComponent(lineComponent);
 
