@@ -10,6 +10,9 @@ public class LineComponent extends DrawingComponent{
     public LineComponent(Point start, Point end) {
         super(new Point(Math.min(start.x, end.x), Math.min(start.y, end.y)), new Dimension(Math.abs(start.x - end.x), Math.abs(start.y - end.y)));
 
+        System.out.println("start " + start + ", end " + end);
+        System.out.println(new Point(Math.min(start.x, end.x), Math.min(start.y, end.y)) + "dim : " + new Dimension(Math.abs(start.x - end.x), Math.abs(start.y - end.y)));
+
         this.start = start;
         this.end = end;
     }

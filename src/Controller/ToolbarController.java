@@ -1,15 +1,18 @@
 package controller;
 
+import controller.tools.LineToolController;
+import controller.tools.RectangleToolController;
 import controller.tools.SelectionToolController;
 import controller.tools.ToolController;
 import view.MainFrame;
 import view.ToolbarView;
+import view.tools.LineToolView;
+import view.tools.RectangleToolView;
 import view.tools.SelectionToolView;
 import view.tools.ToolView;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +33,7 @@ public class ToolbarController {
         {
             entry.getKey().addMouseListener(new MouseAdapter() {
                 @Override
-                public void mouseClicked(MouseEvent e) {
+                public void mousePressed(MouseEvent e) {
                     setActiveToolController(entry.getValue());
                 }
             });
@@ -42,6 +45,12 @@ public class ToolbarController {
         {
             if(toolView instanceof SelectionToolView)
                 toolControllerMap.put(toolView, new SelectionToolController(mainFrame, (SelectionToolView) toolView));
+
+            if(toolView instanceof RectangleToolView)
+                toolControllerMap.put(toolView, new RectangleToolController(mainFrame, (RectangleToolView) toolView));
+
+            if(toolView instanceof LineToolView)
+                toolControllerMap.put(toolView, new LineToolController(mainFrame, (LineToolView) toolView));
         }
     }
 
@@ -49,12 +58,16 @@ public class ToolbarController {
         return toolbarView;
     }
 
-    public void setActiveToolController(ToolController activeToolController) {
-        if(activeToolController != null)
-            activeToolController.onDeselectTool();
+    private void setActiveToolController(ToolController activeToolController) {
+
+        if (this.activeToolController != null) {
+            this.activeToolController.onDeselectTool();
+        }
 
         this.activeToolController = activeToolController;
 
-        activeToolController.onSelectTool();
+        if(activeToolController != null)
+            activeToolController.onSelectTool();
+
     }
 }

@@ -16,10 +16,11 @@ public class MainFrameTest {
         rectangleComponent.setMainColor(Color.BLUE);
         rectangleComponent.setSecondaryColor(Color.CYAN);
 
-        LineComponent lineComponent = new LineComponent(new Point(0, 0), new Point(20, 20));
+        LineComponent lineComponent = new LineComponent(new Point(10, 10), new Point(25, 30));
+
         lineComponent.setMainColor(Color.MAGENTA);
 
-        drawing.addDrawingComponent(rectangleComponent);
+        //drawing.addDrawingComponent(rectangleComponent);
         drawing.addDrawingComponent(lineComponent);
 
         MainFrame mainFrame = new MainFrame(drawing);

@@ -15,7 +15,7 @@ public class SelectionToolController extends ToolController {
     private Map<DrawingComponentView, MouseListener> listenerMap = new HashMap<>();
     private MouseListener drawingViewListener = new MouseAdapter() {
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public void mousePressed(MouseEvent e) {
             getFrame().getDrawingView().getDrawing().setSelection(null);
         }
     };
@@ -29,7 +29,7 @@ public class SelectionToolController extends ToolController {
         for(DrawingComponentView drawingComponentView : getFrame().getDrawingView().getDrawingComponentViewList()){
             MouseListener mouseListener = new MouseAdapter() {
                 @Override
-                public void mouseClicked(MouseEvent e) {
+                public void mousePressed(MouseEvent e) {
                     getFrame().getDrawingView().getDrawing().setSelection(drawingComponentView.getDrawingComponent());
                 }
             };

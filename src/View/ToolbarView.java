@@ -1,14 +1,12 @@
 package view;
 
-import controller.toolbar.FormColoringAction;
-import controller.toolbar.SelectAction;
 import model.Drawing;
-import view.components.RectangleView;
+import view.tools.LineToolView;
+import view.tools.RectangleToolView;
 import view.tools.SelectionToolView;
 import view.tools.ToolView;
 
 import javax.swing.*;
-import javax.tools.Tool;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +75,9 @@ public class ToolbarView{
 
     private void populateToolViewList() {
         toolViewList.add(new SelectionToolView());
+        toolViewList.add(new RectangleToolView());
+        toolViewList.add(new LineToolView());
+
     }
 
     public JToolBar getToolBar() {

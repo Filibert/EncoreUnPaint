@@ -27,12 +27,16 @@ public class LineView extends DrawingComponentView {
             g2d.setPaint(lineComponent.getMainColor());
 
             if (lineComponent.isSelected()) {
-                g2d.setStroke(new BasicStroke(3));
+                g2d.setStroke(new BasicStroke(6));
             } else {
-                g2d.setStroke(new BasicStroke(1));
+                g2d.setStroke(new BasicStroke(3));
             }
 
-            g2d.draw(new Line2D.Float(lineComponent.getStart().x, lineComponent.getStart().y, lineComponent.getEnd().x, lineComponent.getEnd().y));
+
+            g2d.draw(new Line2D.Float(  lineComponent.getStart().x  - lineComponent.getPosition().x,
+                                        lineComponent.getStart().y  - lineComponent.getPosition().y,
+                                        lineComponent.getEnd().x    - lineComponent.getPosition().x,
+                                        lineComponent.getEnd().y    - lineComponent.getPosition().y));
         }
     }
 }
