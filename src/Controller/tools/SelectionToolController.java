@@ -2,7 +2,7 @@ package controller.tools;
 
 import view.MainFrame;
 import view.components.DrawingComponentView;
-import view.tools.SelectionToolView;
+import tools.SelectionTool;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -20,7 +20,7 @@ public class SelectionToolController extends ToolController {
         }
     };
 
-    public SelectionToolController(MainFrame mainFrame, SelectionToolView toolView) {
+    public SelectionToolController(MainFrame mainFrame, SelectionTool.SelectionToolView toolView) {
         super(mainFrame, toolView);
     }
 

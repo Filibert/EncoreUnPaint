@@ -1,7 +1,7 @@
 package controller.tools;
 
 import view.MainFrame;
-import view.tools.ToolView;
+import tools.ToolView;
 
 public abstract class ToolController{
 

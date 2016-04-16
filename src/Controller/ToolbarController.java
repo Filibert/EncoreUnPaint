@@ -4,12 +4,11 @@ import controller.tools.SelectionToolController;
 import controller.tools.ToolController;
 import view.MainFrame;
 import view.ToolbarView;
-import view.tools.SelectionToolView;
-import view.tools.ToolView;
+import tools.SelectionTool;
+import tools.ToolView;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,8 +39,8 @@ public class ToolbarController {
     private void populateToolControllerList() {
         for(ToolView toolView : toolbarView.getToolViewList())
         {
-            if(toolView instanceof SelectionToolView)
-                toolControllerMap.put(toolView, new SelectionToolController(mainFrame, (SelectionToolView) toolView));
+            if(toolView instanceof SelectionTool.SelectionToolView)
+                toolControllerMap.put(toolView, new SelectionToolController(mainFrame, (SelectionTool.SelectionToolView) toolView));
         }
     }
 
