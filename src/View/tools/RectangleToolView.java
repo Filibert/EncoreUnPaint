@@ -7,4 +7,9 @@ public class RectangleToolView extends ToolView {
     public RectangleToolView() {
         super(buttonTitle);
     }
+
+    @Override
+    public String getHelpText() {
+        return "Draw rectangle";
+    }
 }

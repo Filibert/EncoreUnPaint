@@ -50,4 +50,9 @@ public class SelectionToolController extends ToolController {
 
         getFrame().getDrawingView().getPanel().removeMouseListener(drawingViewListener);
     }
+
+    @Override
+    public String getHelpText() {
+        return getToolView().getHelpText();
+    }
 }

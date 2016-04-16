@@ -7,4 +7,9 @@ public class LineToolView extends ToolView {
     public LineToolView() {
         super(buttonTitle);
     }
+
+    @Override
+    public String getHelpText() {
+        return "Draw line";
+    }
 }

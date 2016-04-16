@@ -54,6 +54,7 @@ public class LineToolController extends ToolController{
         getFrame().getDrawingView().getPanel().removeMouseListener(drawingListener);
     }
 
+
     public Point getStart() {
         return start;
     }

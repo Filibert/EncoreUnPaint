@@ -7,4 +7,9 @@ public class SelectionToolView extends ToolView {
     public SelectionToolView() {
         super(buttonText);
     }
+
+    @Override
+    public String getHelpText() {
+        return "Select component";
+    }
 }

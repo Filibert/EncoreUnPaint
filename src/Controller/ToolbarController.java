@@ -89,8 +89,11 @@ public class ToolbarController {
 
         this.activeToolController = activeToolController;
 
-        if(activeToolController != null)
+        if(activeToolController != null) {
             activeToolController.onSelectTool();
-
+            mainFrame.getFooterView().getLabel().setText(activeToolController.getHelpText());
+        }
+        else
+            mainFrame.getFooterView().getLabel().setText("");
     }
 }

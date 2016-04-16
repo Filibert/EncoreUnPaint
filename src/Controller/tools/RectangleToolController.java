@@ -52,4 +52,5 @@ public class RectangleToolController extends ToolController{
     public void onDeselectTool() {
         getFrame().getDrawingView().getPanel().removeMouseListener(drawingListener);
     }
+
 }

@@ -23,4 +23,8 @@ public abstract class ToolController{
     public MainFrame getFrame() {
         return frame;
     }
+
+    public String getHelpText(){
+        return getToolView().getHelpText();
+    }
 }
