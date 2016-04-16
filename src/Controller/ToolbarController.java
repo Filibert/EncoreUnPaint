@@ -7,6 +7,7 @@ import view.ToolbarView;
 import view.tools.SelectionToolView;
 import view.tools.ToolView;
 
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
@@ -27,30 +28,10 @@ public class ToolbarController {
 
         for(Map.Entry<ToolView, ToolController> entry : toolControllerMap.entrySet())
         {
-            entry.getKey().addMouseListener(new MouseListener() {
+            entry.getKey().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     setActiveToolController(entry.getValue());
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
                 }
             });
         }
