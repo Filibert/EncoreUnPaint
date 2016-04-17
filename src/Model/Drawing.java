@@ -2,6 +2,7 @@ package model;
 
 import model.components.DrawingComponent;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,9 @@ public class Drawing {
 
     private List<DrawingListener> drawingListenerList = new ArrayList<>();
     private List<DrawingComponent> drawingComponentList = new ArrayList<>();
+
+    private Color mainColorSelected = Color.BLACK;
+    private Color secondaryColorSelected = Color.CYAN;
 
     private DrawingComponent selection = null;
 
@@ -55,4 +59,19 @@ public class Drawing {
         fireDrawingModified();
     }
 
+    public Color getMainColorSelected() {
+        return mainColorSelected;
+    }
+
+    public void setMainColorSelected(Color mainColorSelected) {
+        this.mainColorSelected = mainColorSelected;
+    }
+
+    public Color getSecondaryColorSelected() {
+        return secondaryColorSelected;
+    }
+
+    public void setSecondaryColorSelected(Color secondaryColorSelected) {
+        this.secondaryColorSelected = secondaryColorSelected;
+    }
 }

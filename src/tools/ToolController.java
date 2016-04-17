@@ -1,4 +1,4 @@
-package controller.tools;
+package tools;
 
 import view.MainFrame;
 import tools.ToolView;
@@ -22,5 +22,9 @@ public abstract class ToolController{
 
     public MainFrame getFrame() {
         return frame;
+    }
+
+    public String getHelpText(){
+        return getToolView().getHelpText();
     }
 }

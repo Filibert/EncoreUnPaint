@@ -10,8 +10,10 @@ public abstract class DrawingComponentView extends JPanel {
     private final DrawingComponent drawingComponent;
 
     public DrawingComponentView(DrawingComponent drawingComponent) {
-        setLayout(null);
         this.drawingComponent = drawingComponent;
+
+        setLayout(null);
+        setOpaque(false);
     }
 
     public DrawingComponent getDrawingComponent() {

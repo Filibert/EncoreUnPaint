@@ -4,26 +4,26 @@ import model.Drawing;
 import model.DrawingListener;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class FooterView implements DrawingListener{
+public class FooterView{
     private final JPanel panel = new JPanel();
+    private final JLabel label = new JLabel();
 
     private final Drawing drawing;
 
     public FooterView(Drawing drawing) {
         this.drawing = drawing;
-
-        drawing.addDrawingListener(this);
+        panel.add(label);
+        panel.setPreferredSize(new Dimension(100, 20));
     }
 
     public JPanel getPanel() {
         return panel;
     }
 
-
-    @Override
-    public void onDrawingChanged() {
-
+    public JLabel getLabel() {
+        return label;
     }
 
     public Drawing getDrawing() {

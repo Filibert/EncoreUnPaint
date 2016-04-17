@@ -11,10 +11,8 @@ public class RectangleView extends DrawingComponentView{
 
     public RectangleView(RectangleComponent rectangle) {
         super(rectangle);
-        setOpaque(false);
 
         this.rectangle = rectangle;
-        setBackground(Color.red);
 
         update();
     }

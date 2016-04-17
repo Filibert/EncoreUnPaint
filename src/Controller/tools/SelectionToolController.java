@@ -1,5 +1,6 @@
 package controller.tools;
 
+import tools.ToolController;
 import view.MainFrame;
 import view.components.DrawingComponentView;
 import tools.SelectionTool;
@@ -15,7 +16,7 @@ public class SelectionToolController extends ToolController {
     private Map<DrawingComponentView, MouseListener> listenerMap = new HashMap<>();
     private MouseListener drawingViewListener = new MouseAdapter() {
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public void mousePressed(MouseEvent e) {
             getFrame().getDrawingView().getDrawing().setSelection(null);
         }
     };
@@ -29,7 +30,7 @@ public class SelectionToolController extends ToolController {
         for(DrawingComponentView drawingComponentView : getFrame().getDrawingView().getDrawingComponentViewList()){
             MouseListener mouseListener = new MouseAdapter() {
                 @Override
-                public void mouseClicked(MouseEvent e) {
+                public void mousePressed(MouseEvent e) {
                     getFrame().getDrawingView().getDrawing().setSelection(drawingComponentView.getDrawingComponent());
                 }
             };
@@ -49,5 +50,10 @@ public class SelectionToolController extends ToolController {
         }
 
         getFrame().getDrawingView().getPanel().removeMouseListener(drawingViewListener);
+    }
+
+    @Override
+    public String getHelpText() {
+        return getToolView().getHelpText();
     }
 }
