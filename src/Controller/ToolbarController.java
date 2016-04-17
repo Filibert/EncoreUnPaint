@@ -9,13 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.security.cert.Extension;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class ToolbarController {
     private final MainFrame mainFrame;
@@ -63,7 +61,7 @@ public class ToolbarController {
     }
 
     private void populateToolControllerList() {
-        File toolsFolder = new File(ToolbarView.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/tools/");
+     /*   File toolsFolder = new File(ToolbarView.class.getProtectionDomain().getCodeSource().getLocation().getPath() + "/tools/");
         File[] fileList = toolsFolder.listFiles();
         String extension , nameWithExtension , nameWithoutExtension ,toolView="",toolController="", outerClassName = "";
         ArrayList<String> nameWithoutExtensionList = new ArrayList<String>(fileList.length);
@@ -105,7 +103,29 @@ public class ToolbarController {
                 }
             }
 
+        }*/
+
+        List<ToolView> toolsViewList = mainFrame.getToolbarView().getToolViewList();
+        for (ToolView toolView:toolsViewList) {
+            String outerClassName = toolView.getClass().getName().substring(toolView.getClass().getName().indexOf(".")+1,toolView.getClass().getName().lastIndexOf("$"));
+            System.out.println(outerClassName);
+            try {
+                Class<?> tool = Class.forName("tools."+outerClassName);
+                Object o = tool.newInstance();
+
+                Class<?> toolControllerClass = Class.forName("tools."+outerClassName+"$"+outerClassName+"Controller");
+                Constructor<?> constructorController = toolControllerClass.getConstructors()[0];
+                Object controller = constructorController.newInstance(o,mainFrame,toolView);
+
+                System.out.println(toolControllerClass.getConstructors()[0].getParameterTypes()[0]);
+                System.out.println(o.getClass());
+
+                toolControllerMap.put( toolView,(ToolController) controller);
+            } catch (ClassNotFoundException | SecurityException | InstantiationException | IllegalAccessException | InvocationTargetException e){
+                e.printStackTrace();
+            }
         }
+
 
     }
 

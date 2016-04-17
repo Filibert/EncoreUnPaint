@@ -4,6 +4,7 @@ import model.Drawing;
 import tools.ToolView;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -16,6 +17,7 @@ public class ToolbarView{
 
     private final JButton mainColorButton;
     private final JButton secondaryColorButton;
+    private Color mainColor,secondaryColor;
 
     private final Drawing drawing;
 
@@ -47,17 +49,14 @@ public class ToolbarView{
         JButton minus = new JButton("-");
         toolBar.add(minus);
        // toolBar.setButtonSize(minus,25,25);
-      /*  ColorSelectButton1.addActionListener(e -> mainColor = JColorChooser.showDialog(null,"Color",null));
-
-        ColorSelectButton2.addActionListener(e -> secondaryColor = JColorChooser.showDialog(null,"Color",null));
-        ColorSelectButton1.setBackground(mainColor);
-        ColorSelectButton2.setBackground(secondaryColor);
-        jpanel.add(ColorSelectButton1);
-        jpanel.add(ColorSelectButton2);
+        mainColorButton.addActionListener(e -> mainColor = JColorChooser.showDialog(null,"Color",null));
+        secondaryColorButton.addActionListener(e -> secondaryColor = JColorChooser.showDialog(null,"Color",null));
+        mainColorButton.setBackground(mainColor);
+        secondaryColorButton.setBackground(secondaryColor);
         jpanel.add(mainColorButton);
         jpanel.add(secondaryColorButton);
 
-        toolBar.add(jpanel);*/
+        toolBar.add(jpanel);
     }
 
     private void populateToolViewList() {
