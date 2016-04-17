@@ -82,31 +82,25 @@ public class ToolbarController {
                 if(nameWithoutExtensionList.contains(outerClassName + "$"+outerClassName+"View") && nameWithoutExtensionList.contains(outerClassName + "$"+outerClassName+"Controller")) {
                     toolView = "tools." + outerClassName + "$" + outerClassName + "View";
                     toolController = "tools." + outerClassName + "$" + outerClassName + "Controller";
-                    System.out.println(toolController);
                     try {
                         Class<?> tool = Class.forName("tools."+outerClassName);
                         Object o = tool.newInstance();
-
-                        Class<?> toolControllerClass = Class.forName(toolController);
-                        Constructor<?> constructorController = toolControllerClass.getDeclaredConstructor(tool);
-                        Object controller = constructorController.newInstance(o);
-
 
                         Class<?> toolViewClass = Class.forName(toolView);
                         Constructor<?> ctor = toolViewClass.getDeclaredConstructor(tool);
                         Object view =  ctor.newInstance(o);
 
-                        System.out.println(toolControllerClass);
-                        System.out.print(ctor);
+                        Class<?> toolControllerClass = Class.forName(toolController);
+                        Constructor<?> constructorController = toolControllerClass.getConstructors()[0];
+                        Object controller = constructorController.newInstance(o,mainFrame,view);
 
+                        System.out.println(toolControllerClass.getConstructors()[0].getParameterTypes()[0]);
+                        System.out.println(o.getClass());
 
-
-                     /*   toolControllerMap.put((ToolView) view,(ToolController) controller);*/
+                        toolControllerMap.put((ToolView) view,(ToolController) controller);
                     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | InvocationTargetException e){
                         e.printStackTrace();
                     }
-
-
 
                 }
             }

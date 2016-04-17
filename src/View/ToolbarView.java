@@ -40,7 +40,13 @@ public class ToolbarView{
 
         mainColorButton = new JButton();
         secondaryColorButton = new JButton();
+        JButton plus = new JButton("+");
+        toolBar.add(plus);
+        //toolBar.setButtonSize(plus,25,25);
 
+        JButton minus = new JButton("-");
+        toolBar.add(minus);
+       // toolBar.setButtonSize(minus,25,25);
       /*  ColorSelectButton1.addActionListener(e -> mainColor = JColorChooser.showDialog(null,"Color",null));
 
         ColorSelectButton2.addActionListener(e -> secondaryColor = JColorChooser.showDialog(null,"Color",null));
