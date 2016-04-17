@@ -54,7 +54,7 @@ public class LineTool {
             }
         };
 
-        public LineToolController(MainFrame frame, view.tools.LineToolView toolView) {
+        public LineToolController(MainFrame frame, LineToolView toolView) {
             super(frame, toolView);
         }
 
